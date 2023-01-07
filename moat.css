@@ -1,0 +1,22 @@
+.scoreitems{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+h3, .pbtn{
+    text-align: center;
+}
+.total{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+.btn{
+    background-color:black;
+    padding: 20px;
+    border-radius: 100px;
+    color: white;
+}
+h2{
+    padding-top: 20px;
+}

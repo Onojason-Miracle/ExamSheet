@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Sheet</title>
+    <link rel="stylesheet" href="moat.css"/>
+</head>
+<body>
+    <div class="">
+        <div class=" scoreitems">
+            <div class="">
+                <h3>Subjects</h3>
+                <p>English</p>
+                <p>Mathes</p>
+                <p>Chemistry</p>
+                <p>Biology</p>
+                <p>French</p>
+            </div>
+            <div class="">
+                <h3>Scores</h3>
+                <p>
+                    <input type="number" class="scores"  id="escore" onchange="result('escore', 'grade')"/>
+                </p>
+                <p>
+                    <input type="number" class="scores" id="mscore" onchange="result('mscore', 'grade1')"/>
+                </p>
+                <p>
+                    <input type="number" class="scores" id="cscore" onchange="result('cscore', 'grade2')" />
+                </p>
+                <p>
+                    <input type="number" class="scores" id="bscore" onchange="result('bscore', 'grade3')"/>
+                </p>
+                <p>
+                    <input type="number" class="scores" id="fscore" onchange="result('fscore', 'grade4')"/>  
+                </p>
+            </div>
+            <div class="">
+                <h3>Grade</h3>
+                <p>
+                    <input type="text" class="grades" id="grade"/>
+                </p>
+                <p>
+                    <input type="text" class="grades" id="grade1"/>
+                </p>
+                <p>
+                    <input type="text" class="grades" id="grade2"/>
+                </p>
+                <p>
+                    <input type="text" class="grades" id="grade3"/>
+                </p>
+                <p>
+                    <input type="text" class="grades" id="grade4"/>
+                </p>
+            </div>
+        </div>
+        <p class="pbtn">
+            <button class="btn" onclick="getresult('tot', 'avg', 'rem')">Get Result</button>
+        </p>
+        <div class="total">
+            <div>
+                <h3>Total</h3>
+                <h3>Average</h3>
+                <h2>Remarks</h2>
+            </div>
+            <div>
+                <h3 class="tot"  id="tot"></h3>
+                <h3 class="avg" id="avg"></h3>
+                <h2 class="remarks" id="rem"></h2>
+            </div>
+            <div>
+               
+                
+            </div>
+        </div>
+        
+    </div>
+
+
+    
+<script type="text/javascript">
+            
+    function result(score, grade){  
+        
+       var v = document.getElementById(score).value
+    if(v < 40){
+        document.getElementById(grade).value = "F";
+    }
+    else if(v >= 40 && v <= 45 ){
+        document.getElementById(grade).value = "E"; 
+     }
+     else if(v >45 && v <= 50){
+        document.getElementById(grade).value = "D";
+    }
+    else if(v >50 && v < 60){
+        document.getElementById(grade).value = "C";
+    }
+    else if(v >= 60 && v <= 70){
+        document.getElementById(grade).value = "B";
+    }
+   
+    else if(v >=70){
+        document.getElementById(grade).value = "A";
+ }
+ else{
+    alert("not a number");
+ }
+}
+
+function getresult(tot, avg, rem){
+    
+  var e = document.getElementById('escore').value;
+  var m = document.getElementById('mscore').value;
+  var c = document.getElementById('cscore').value;
+  var b = document.getElementById('bscore').value;
+  var f = document.getElementById('fscore').value;
+
+  var total = parseInt(e) + parseInt(m) + parseInt(c) + parseInt(b) + parseInt(f);
+  var average = total / 5;
+  document.getElementById(tot).innerHTML = total;
+  document.getElementById(avg).innerHTML = average;
+  if(average >= 50){
+    document.getElementById(rem).innerHTML = "passed";
+    document.getElementById(rem).style.backgroundColor = "green";
+    document.getElementById(rem).style.color = "white";
+    document.getElementById(rem).style.padding = '20px';
+   
+  }
+  else{
+    document.getElementById(rem).innerHTML = "failed";
+    document.getElementById(rem).style.backgroundColor = "red";
+    document.getElementById(rem).style.color = "white";
+    document.getElementById(rem).style.padding = '20px';
+  }
+
+}
+   
+</script>
+  
+</body>
+</html>
